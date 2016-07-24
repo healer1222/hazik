@@ -1,0 +1,13 @@
+﻿@model hazi2.Models.CsvFileModel
+
+@{
+
+    ViewBag.Title = "Home Page";
+
+}
+@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <label for="Cikk">Csv fájl feltöltése</label>
+    <input type="file" name="Cikk" id="Cikk" />
+    <button type="submit">Feltöltés</button>
+}

@@ -1,0 +1,33 @@
+﻿@model hazi2.Models.Item
+
+@{
+
+}
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(m => m.Name)
+    @Html.EditorFor(m => m.Name)
+    @Html.ValidationMessageFor(m => m.Name);
+
+    @Html.LabelFor(m => m.ItemNumber);
+    @Html.EditorFor(m => m.ItemNumber);
+    @Html.ValidationMessageFor(m => m.ItemNumber);
+
+    @Html.LabelFor(m => m.BarCode);
+    @Html.EditorFor(m => m.BarCode);
+    @Html.ValidationMessageFor(m => m.BarCode);
+
+    @Html.LabelFor(m => m.Piece);
+    @Html.DropDownListFor(m => m.Piece, new List<SelectListItem>
+    {
+        new SelectListItem() { Value = "darab", Text = "darab" },
+        new SelectListItem() { Value = "pár", Text = "pár" },
+        new SelectListItem() { Value = "csomag", Text = "csomag" },
+        new SelectListItem() { Value = "méter", Text = "méter" }
+    });
+    @Html.ValidationMessageFor(m => m.Piece);
+
+    <button type="submit" class="btn btn-default">Mentés</button>
+}
+

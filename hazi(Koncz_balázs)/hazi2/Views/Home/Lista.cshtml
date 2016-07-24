@@ -1,0 +1,40 @@
+﻿@using System.Collections.Generic
+@using hazi2.Models
+@model List<Item>
+
+
+@Html.ActionLink("Új elem hozzáadása", "Ujelem", "Home", null, new { @class = "btn btn-default" })
+@Html.ActionLink("Letöltés", "Letoltes", "Home", null, new { @class = "btn btn-default" })
+
+
+
+<table class="table">
+
+    <thead>
+       
+       
+        <tr>
+            <th>CikkNév</th>
+            <th>CikkSzám</th>
+            <th>VonalKód</th>
+            <th>mennyiségi egység</th>
+        </tr>
+        
+    </thead>
+    <tbody>
+
+    @foreach (Item item in Model.Skip(1))
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.ItemNumber</td>
+            <td>@item.BarCode</td>
+            <td>@item.Piece</td>
+           
+        </tr>
+    }
+</tbody>
+
+
+</table>
+<p>@Html.ActionLink("=>", "Lista", "Home", null, new { @class = "btn btn-default" })</p>
